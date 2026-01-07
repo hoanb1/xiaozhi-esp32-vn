@@ -104,11 +104,14 @@ private:
         esp_lcd_panel_io_i2c_config_t tp_io_config = {};
         tp_io_config.dev_addr = 0x38;
         tp_io_config.scl_speed_hz = 400 * 1000;
+        tp_io_config.control_phase_bytes = 1;
+        tp_io_config.dc_bit_offset = 0;
+        tp_io_config.lcd_cmd_bits = 8;
+        tp_io_config.lcd_param_bits = 8;
 
         ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(i2c_bus_, &tp_io_config, &tp_io_handle));
         ESP_ERROR_CHECK(esp_lcd_touch_new_i2c_ft5x06(tp_io_handle, &tp_cfg, &tp));
 
-        /* Use the LVGL Port component from Espressif */
         const lvgl_port_touch_cfg_t touch_cfg = {
             .disp = lv_display_get_default(),
             .handle = tp,
