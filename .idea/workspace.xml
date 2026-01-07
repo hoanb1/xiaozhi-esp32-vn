@@ -26,7 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a5e9850e-d9a8-4a2d-a5c1-0591671a4e71" name="Changes" comment="screen ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/board_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/board_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main/application.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_board.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_board.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +66,118 @@
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.cc" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_audio_codec.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/hoan/Arduino/xiaozhi-esp32-vn/main/boards/es3c28p/es3c28p_board.cc" root0="SKIP_HIGHLIGHTING" />
@@ -144,7 +254,7 @@
       <workItem from="1767671095448" duration="8006000" />
       <workItem from="1767681995608" duration="5798000" />
       <workItem from="1767705087441" duration="124000" />
-      <workItem from="1767754626211" duration="8253000" />
+      <workItem from="1767754626211" duration="18851000" />
     </task>
     <task id="LOCAL-00001" summary="boot able">
       <option name="closed" value="true" />
@@ -178,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767762955629</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="screen ok">
+      <option name="closed" value="true" />
+      <created>1767763643187</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1767763643187</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
