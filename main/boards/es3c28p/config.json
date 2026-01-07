@@ -1,0 +1,13 @@
+{
+  "target": "esp32s3",
+  "builds": [
+    {
+      "name": "es3c28p",
+      "sdkconfig_append": [
+        "CONFIG_LCD_TYPE_ILI9341=y",
+        "CONFIG_LV_TOUCH_CONTROLLER_FT6X36=y",
+        "CONFIG_ESP32_S3_BOX_BOARD=n"
+      ]
+    }
+  ]
+}

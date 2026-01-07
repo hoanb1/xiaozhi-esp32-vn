@@ -117,6 +117,13 @@ choice BOARD_TYPE
     default BOARD_TYPE_BREAD_COMPACT_WIFI
     help
         Board type. 开发板类型
+
+    config BOARD_TYPE_ES3C28P
+        bool "ES3C28P (2.8 inch ESP32-S3 N16R8)"
+        depends on IDF_TARGET_ESP32S3
+        help
+            Custom board with ILI9341 LCD and FT6336G Touch.
+
     config BOARD_TYPE_BREAD_COMPACT_WIFI
         bool "Bread Compact WiFi (面包板)"
         depends on IDF_TARGET_ESP32S3

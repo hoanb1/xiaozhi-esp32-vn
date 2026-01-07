@@ -63,8 +63,14 @@ set(BUILTIN_TEXT_FONT font_puhui_14_1)
 set(BUILTIN_ICON_FONT font_awesome_14_1)
 
 # Add board files according to BOARD_TYPE
-# Set default assets if the board uses partition table V2
-if(CONFIG_BOARD_TYPE_BREAD_COMPACT_WIFI)
+# --- Cấu hình cho Board ES3C28P được thêm vào đây ---
+if(CONFIG_BOARD_TYPE_ES3C28P)
+    set(BOARD_TYPE "es3c28p")
+    set(BUILTIN_TEXT_FONT font_puhui_basic_16_4)
+    set(BUILTIN_ICON_FONT font_awesome_16_4)
+    set(DEFAULT_EMOJI_COLLECTION twemoji_32)
+# --- Các board cũ giữ nguyên bên dưới ---
+elseif(CONFIG_BOARD_TYPE_BREAD_COMPACT_WIFI)
     set(BOARD_TYPE "bread-compact-wifi")
     set(BUILTIN_TEXT_FONT font_puhui_basic_14_1)
     set(BUILTIN_ICON_FONT font_awesome_14_1)
