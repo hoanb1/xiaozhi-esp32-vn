@@ -48,6 +48,7 @@ private:
     i2c_master_bus_handle_t i2c_bus_ = nullptr;
     Button boot_button_;
     LcdDisplay* display_ = nullptr;
+    ES3C28PAudioCodec* audio_codec_ = nullptr;
 
     void InitializeI2c() {
         i2c_master_bus_config_t i2c_bus_cfg = {
@@ -143,25 +144,37 @@ private:
     }
 
 public:
+   public:
     ES3C28PBoard() : boot_button_(BOOT_BUTTON_GPIO) {
-        /* Force Backlight and PA to ON/OFF levels */
+        /* Backlight ON */
         gpio_reset_pin(DISPLAY_BACKLIGHT_PIN);
         gpio_set_direction(DISPLAY_BACKLIGHT_PIN, GPIO_MODE_OUTPUT);
         gpio_set_level(DISPLAY_BACKLIGHT_PIN, 1);
 
+        /* PA ban đầu nên là HIGH (Tắt) để tránh tiếng nổ khi boot */
         gpio_reset_pin(AUDIO_CODEC_PA_PIN);
         gpio_set_direction(AUDIO_CODEC_PA_PIN, GPIO_MODE_OUTPUT);
-        gpio_set_level(AUDIO_CODEC_PA_PIN, 0);
+        gpio_set_level(AUDIO_CODEC_PA_PIN, 1);
 
-        InitializeI2c();
+        InitializeI2c(); // I2C phải chạy trước để AudioCodec dùng
         InitializeSpi();
         InitializeLcdDisplay();
         InitializeTouch();
         InitializeButtons();
     }
-
     virtual AudioCodec* GetAudioCodec() override {
-        return CreateGenericAudioCodec(AUDIO_I2S_GPIO_MCLK, AUDIO_I2S_GPIO_BCLK, AUDIO_I2S_GPIO_WS, AUDIO_I2S_GPIO_DOUT, AUDIO_I2S_GPIO_DIN);
+        if (audio_codec_ == nullptr) {
+            audio_codec_ = new ES3C28PAudioCodec(
+                AUDIO_I2S_GPIO_MCLK, 
+                AUDIO_I2S_GPIO_BCLK, 
+                AUDIO_I2S_GPIO_WS,
+                AUDIO_I2S_GPIO_DOUT, 
+                AUDIO_I2S_GPIO_DIN, 
+                AUDIO_CODEC_PA_PIN
+            );
+            audio_codec_->Config(i2c_bus_);
+        }
+        return audio_codec_;
     }
 
     virtual Display* GetDisplay() override {
