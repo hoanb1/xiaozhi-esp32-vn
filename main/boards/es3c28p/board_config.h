@@ -27,9 +27,9 @@
 #define DISPLAY_RST_PIN             GPIO_NUM_NC
 #define DISPLAY_BACKLIGHT_PIN       GPIO_NUM_45
 
-/* Display Orientation & Color */
+/* FIXED MIRROR ISSUE: Adjusted to fix per-character mirroring */
 #define DISPLAY_SWAP_XY             true
-#define DISPLAY_MIRROR_X            false
+#define DISPLAY_MIRROR_X            true
 #define DISPLAY_MIRROR_Y            true
 #define DISPLAY_INVERT_COLOR        false
 #define DISPLAY_RGB_ORDER           LCD_RGB_ELEMENT_ORDER_BGR

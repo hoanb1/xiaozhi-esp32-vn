@@ -26,7 +26,7 @@
 
 #define TAG "ES3C28P_Board"
 
-/* Corrected Simple Backlight Class */
+/* Simple Backlight Class to avoid PWM duty cycle issues */
 class SimpleBacklight : public Backlight {
 public:
     SimpleBacklight(gpio_num_t pin) : pin_(pin) {
@@ -36,7 +36,6 @@ public:
         gpio_config(&io_conf);
     }
 protected:
-    /* This is the correct virtual function name from backlight.h */
     virtual void SetBrightnessImpl(uint8_t brightness) override {
         gpio_set_level(pin_, brightness > 0 ? 1 : 0);
     }
@@ -145,7 +144,7 @@ private:
 
 public:
     ES3C28PBoard() : boot_button_(BOOT_BUTTON_GPIO) {
-        /* Reset and set GPIOs directly to ensure they are ON */
+        /* Force Backlight and PA to ON/OFF levels */
         gpio_reset_pin(DISPLAY_BACKLIGHT_PIN);
         gpio_set_direction(DISPLAY_BACKLIGHT_PIN, GPIO_MODE_OUTPUT);
         gpio_set_level(DISPLAY_BACKLIGHT_PIN, 1);
@@ -170,7 +169,6 @@ public:
     }
 
     virtual Backlight* GetBacklight() override {
-        /* Use simple GPIO control to keep screen always ON */
         static SimpleBacklight backlight(DISPLAY_BACKLIGHT_PIN);
         return &backlight;
     }
