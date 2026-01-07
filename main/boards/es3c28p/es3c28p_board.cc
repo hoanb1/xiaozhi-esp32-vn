@@ -65,7 +65,7 @@ private:
         io_config.cs_gpio_num = DISPLAY_CS_PIN;
         io_config.dc_gpio_num = DISPLAY_DC_PIN;
         io_config.spi_mode = 0;
-        io_config.pclk_hz = 40 * 1000 * 1000;
+        io_config.pclk_hz = 20 * 1000 * 1000;
         io_config.trans_queue_depth = 10;
         io_config.lcd_cmd_bits = 8;
         io_config.lcd_param_bits = 8;
@@ -127,12 +127,15 @@ private:
 
 public:
     ES3C28PBoard() : boot_button_(BOOT_BUTTON_GPIO) {
+        // Force Backlight ON using GPIO first
         gpio_reset_pin(DISPLAY_BACKLIGHT_PIN);
         gpio_set_direction(DISPLAY_BACKLIGHT_PIN, GPIO_MODE_OUTPUT);
         gpio_set_level(DISPLAY_BACKLIGHT_PIN, 1);
 
+        // Force Audio Amp ON
+        gpio_reset_pin(AUDIO_CODEC_PA_PIN);
         gpio_set_direction(AUDIO_CODEC_PA_PIN, GPIO_MODE_OUTPUT);
-        gpio_set_level(AUDIO_CODEC_PA_PIN, 0);
+        gpio_set_level(AUDIO_CODEC_PA_PIN, 0); // Low to enable PA
 
         InitializeI2c();
         InitializeSpi();
@@ -150,6 +153,7 @@ public:
     }
 
     virtual Backlight* GetBacklight() override {
+        // Change 'invert' to true if it keeps turning off
         static PwmBacklight backlight(DISPLAY_BACKLIGHT_PIN, false);
         return &backlight;
     }
