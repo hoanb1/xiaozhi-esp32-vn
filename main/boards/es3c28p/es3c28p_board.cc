@@ -26,6 +26,24 @@
 
 #define TAG "ES3C28P_Board"
 
+/* Corrected Simple Backlight Class */
+class SimpleBacklight : public Backlight {
+public:
+    SimpleBacklight(gpio_num_t pin) : pin_(pin) {
+        gpio_config_t io_conf = {};
+        io_conf.pin_bit_mask = (1ULL << pin_);
+        io_conf.mode = GPIO_MODE_OUTPUT;
+        gpio_config(&io_conf);
+    }
+protected:
+    /* This is the correct virtual function name from backlight.h */
+    virtual void SetBrightnessImpl(uint8_t brightness) override {
+        gpio_set_level(pin_, brightness > 0 ? 1 : 0);
+    }
+private:
+    gpio_num_t pin_;
+};
+
 class ES3C28PBoard : public WifiBoard {
 private:
     i2c_master_bus_handle_t i2c_bus_ = nullptr;
@@ -127,15 +145,14 @@ private:
 
 public:
     ES3C28PBoard() : boot_button_(BOOT_BUTTON_GPIO) {
-        // Force Backlight ON using GPIO first
+        /* Reset and set GPIOs directly to ensure they are ON */
         gpio_reset_pin(DISPLAY_BACKLIGHT_PIN);
         gpio_set_direction(DISPLAY_BACKLIGHT_PIN, GPIO_MODE_OUTPUT);
         gpio_set_level(DISPLAY_BACKLIGHT_PIN, 1);
 
-        // Force Audio Amp ON
         gpio_reset_pin(AUDIO_CODEC_PA_PIN);
         gpio_set_direction(AUDIO_CODEC_PA_PIN, GPIO_MODE_OUTPUT);
-        gpio_set_level(AUDIO_CODEC_PA_PIN, 0); // Low to enable PA
+        gpio_set_level(AUDIO_CODEC_PA_PIN, 0);
 
         InitializeI2c();
         InitializeSpi();
@@ -153,8 +170,8 @@ public:
     }
 
     virtual Backlight* GetBacklight() override {
-        // Change 'invert' to true if it keeps turning off
-        static PwmBacklight backlight(DISPLAY_BACKLIGHT_PIN, false);
+        /* Use simple GPIO control to keep screen always ON */
+        static SimpleBacklight backlight(DISPLAY_BACKLIGHT_PIN);
         return &backlight;
     }
 };
