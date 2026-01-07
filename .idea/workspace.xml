@@ -25,9 +25,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e9850e-d9a8-4a2d-a5c1-0591671a4e71" name="Changes" comment="audio ok">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+    <list default="true" id="a5e9850e-d9a8-4a2d-a5c1-0591671a4e71" name="Changes" comment="no sound">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main/application.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_audio_codec.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_audio_codec.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_audio_codec.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_audio_codec.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_board.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_board.cc" afterDir="false" />
@@ -128,7 +128,7 @@
       <workItem from="1767681995608" duration="5798000" />
       <workItem from="1767705087441" duration="124000" />
       <workItem from="1767754626211" duration="24325000" />
-      <workItem from="1767789167989" duration="9878000" />
+      <workItem from="1767789167989" duration="15754000" />
     </task>
     <task id="LOCAL-00001" summary="boot able">
       <option name="closed" value="true" />
@@ -178,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767774761398</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="no sound">
+      <option name="closed" value="true" />
+      <created>1767799479666</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1767799479666</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +201,8 @@
     <MESSAGE value="boot able" />
     <MESSAGE value="screen ok" />
     <MESSAGE value="audio ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="audio ok" />
+    <MESSAGE value="no sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="no sound" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
