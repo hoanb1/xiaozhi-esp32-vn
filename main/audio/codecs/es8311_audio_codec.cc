@@ -1,3 +1,4 @@
+// File: main/audio/codecs/es8311_audio_codec.cc
 #include "es8311_audio_codec.h"
 
 #include <esp_log.h>
@@ -18,6 +19,7 @@ Es8311AudioCodec::Es8311AudioCodec(void* i2c_master_handle, i2c_port_t i2c_port,
 
     assert(input_sample_rate_ == output_sample_rate_);
     CreateDuplexChannels(mclk, bclk, ws, dout, din);
+
 
     // Do initialize of related interface: data_if, ctrl_if and gpio_if
     audio_codec_i2s_cfg_t i2s_cfg = {

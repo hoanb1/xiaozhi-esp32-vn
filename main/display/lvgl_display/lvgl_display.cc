@@ -1,10 +1,33 @@
 #include <esp_log.h>
 #include <esp_err.h>
+
+// First include all ESP-IDF headers that might define the problematic macros
+#include <lwip/sockets.h>
+
+// Save the original macro definitions
+#pragma push_macro("_IO")
+#pragma push_macro("_IOR")
+#pragma push_macro("_IOW")
+
+// Undefine the macros to avoid conflicts with Linux headers
+#undef _IO
+#undef _IOR
+#undef _IOW
+
+// Now include the Linux headers that need these macros
+#include <linux/videodev2.h>
+
+// Restore the original macro definitions
+#pragma pop_macro("_IO")
+#pragma pop_macro("_IOR")
+#pragma pop_macro("_IOW")
+
+// Now include the rest of the standard C++ headers
 #include <string>
 #include <cstdlib>
 #include <cstring>
-#include <font_awesome.h>
 
+// Project headers
 #include "lvgl_display.h"
 #include "board.h"
 #include "application.h"
@@ -12,6 +35,7 @@
 #include "settings.h"
 #include "assets/lang_config.h"
 #include "jpg/image_to_jpeg.h"
+#include <font_awesome.h>
 
 #define TAG "Display"
 

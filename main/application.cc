@@ -307,32 +307,10 @@ void Application::HandleActivationDoneEvent() {
     display->ShowNotification(message.c_str());
     display->SetChatMessage("system", "");
 
-    // --- ĐOẠN MÃ ÉP ĐỌC SỐ ĐỂ KIỂM TRA LOA ---
-    ESP_LOGI(TAG, "Hardware Audio Test: Counting 0 to 3...");
-    audio_service_.PlaySound(Lang::Sounds::OGG_0);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_1);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_2);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_4);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_5);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_6);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_7);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_8);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_9);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    audio_service_.PlaySound(Lang::Sounds::OGG_WELCOME);
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    // ---------------------------------------
-
+    // Play the success sound to indicate the device is ready
     audio_service_.PlaySound(Lang::Sounds::OGG_SUCCESS);
 
+    // Release OTA object after activation is complete
     ota_.reset();
     auto& board = Board::GetInstance();
     board.SetPowerSaveLevel(PowerSaveLevel::LOW_POWER);

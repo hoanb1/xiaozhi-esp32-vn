@@ -1,3 +1,5 @@
+// File: main/audio/codecs/es8311_audio_codec.h
+
 #ifndef _ES8311_AUDIO_CODEC_H
 #define _ES8311_AUDIO_CODEC_H
 
