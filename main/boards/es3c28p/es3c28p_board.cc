@@ -1,7 +1,6 @@
 // main/boards/es3c28p/es3c28p_board.cc
 
 #include "wifi_board.h"
-#include "../device_state.h"
 #include "audio_codec.h"
 #include "display/lcd_display.h"
 #include "application.h"
@@ -42,24 +41,18 @@ private:
 class ES3C28PBoard : public WifiBoard {
 private:
     i2c_master_bus_handle_t i2c_bus_ = nullptr;
-    Button boot_button_;
     LcdDisplay* display_ = nullptr;
     ES3C28PAudioCodec* audio_codec_ = nullptr;
 
     void InitializeI2c() {
-        gpio_reset_pin((gpio_num_t)16);
-        gpio_reset_pin((gpio_num_t)15);
-        vTaskDelay(pdMS_TO_TICKS(50));
+        i2c_master_bus_config_t i2c_bus_cfg = {};
+        i2c_bus_cfg.i2c_port = I2C_NUM_0;
+        i2c_bus_cfg.sda_io_num = (gpio_num_t)16;
+        i2c_bus_cfg.scl_io_num = (gpio_num_t)15;
+        i2c_bus_cfg.clk_source = I2C_CLK_SRC_DEFAULT;
+        i2c_bus_cfg.glitch_ignore_cnt = 7;
+        i2c_bus_cfg.flags.enable_internal_pullup = 1;
 
-        i2c_master_bus_config_t i2c_bus_cfg = {
-            .i2c_port = I2C_NUM_0,
-            .sda_io_num = (gpio_num_t)16,
-            .scl_io_num = (gpio_num_t)15,
-            .clk_source = I2C_CLK_SRC_DEFAULT,
-           // .i2c_clk_speed = 100000,
-            .glitch_ignore_cnt = 7,
-            .flags = { .enable_internal_pullup = 1 },
-        };
         ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_cfg, &i2c_bus_));
     }
 
@@ -106,29 +99,41 @@ private:
                                      DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y, DISPLAY_SWAP_XY);
     }
 
+    // Removed IRAM_ATTR to avoid dangerous relocation
+    static void button_handler(void* arg) {
+        Application::GetInstance().StartListening();
+    }
+
 public:
-    ES3C28PBoard() : boot_button_(BOOT_BUTTON_GPIO) {
-        gpio_reset_pin((gpio_num_t)1);
-        gpio_set_direction((gpio_num_t)1, GPIO_MODE_OUTPUT);
-        gpio_set_level((gpio_num_t)1, 1);
+    ES3C28PBoard() {
+        gpio_config_t pa_conf = {};
+        pa_conf.pin_bit_mask = (1ULL << 1);
+        pa_conf.mode = GPIO_MODE_OUTPUT;
+        gpio_config(&pa_conf);
+        gpio_set_level((gpio_num_t)1, 0);
 
         InitializeI2c();
         InitializeSpi();
         InitializeLcdDisplay();
 
-        gpio_reset_pin((gpio_num_t)45);
-        gpio_set_direction((gpio_num_t)45, GPIO_MODE_OUTPUT);
+        gpio_config_t bl_conf = {};
+        bl_conf.pin_bit_mask = (1ULL << 45);
+        bl_conf.mode = GPIO_MODE_OUTPUT;
+        gpio_config(&bl_conf);
         gpio_set_level((gpio_num_t)45, 1);
 
-        boot_button_.OnClick([this]() {
-            auto& app = Application::GetInstance();
-            if (app.GetDeviceState() == kDeviceStateIdle || app.GetDeviceState() == kDeviceStateListening) {
-                ESP_LOGI(TAG, "Triggering manual listen via button");
-                app.StartListening();
-            }
-        });
+        // Standard GPIO Config for Button
+        gpio_config_t btn_conf = {};
+        btn_conf.pin_bit_mask = (1ULL << 0);
+        btn_conf.mode = GPIO_MODE_INPUT;
+        btn_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+        btn_conf.intr_type = GPIO_INTR_NEGEDGE;
+        gpio_config(&btn_conf);
 
-        ESP_LOGI(TAG, "ES3C28P Board initialized");
+        gpio_install_isr_service(0);
+        gpio_isr_handler_add((gpio_num_t)0, button_handler, NULL);
+
+        ESP_LOGI(TAG, "ES3C28P Board Hardware initialized");
     }
 
     virtual AudioCodec* GetAudioCodec() override {
