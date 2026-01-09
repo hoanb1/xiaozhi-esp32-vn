@@ -119,7 +119,7 @@ choice BOARD_TYPE
         Board type. 开发板类型
 
     config BOARD_TYPE_ES3C28P
-        bool "ES3C28P (2.8 inch ESP32-S3 N16R8)"
+        bool "ES3C28P Board (ESP32-S3 + ILI9341 + ES8311)"
         depends on IDF_TARGET_ESP32S3
         help
             Custom board with ILI9341 LCD and FT6336G Touch.
