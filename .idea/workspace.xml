@@ -219,9 +219,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd1bbdea-fb8a-4aab-a6eb-35ebd15c5096" name="Changes" comment="english work">
+    <list default="true" id="cd1bbdea-fb8a-4aab-a6eb-35ebd15c5096" name="Changes" comment="run all function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Kconfig.projbuild" beforeDir="false" afterPath="$PROJECT_DIR$/main/Kconfig.projbuild" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/board_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/board_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_audio_codec.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main/boards/es3c28p/es3c28p_audio_codec.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +291,7 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "e7cc7558",
+    "git-widget-placeholder": "29865513",
     "last_opened_file_path": "/home/hoan/Arduino",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -1487,7 +1488,7 @@
       <workItem from="1767858661079" duration="93000" />
       <workItem from="1767858875448" duration="8761000" />
       <workItem from="1767873917478" duration="18326000" />
-      <workItem from="1767923256316" duration="18232000" />
+      <workItem from="1767923256316" duration="19907000" />
     </task>
     <task id="LOCAL-00001" summary="audio ok">
       <option name="closed" value="true" />
@@ -1521,7 +1522,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767885771687</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="run all function">
+      <option name="closed" value="true" />
+      <created>1767941785071</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1767941785071</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1547,7 +1556,8 @@
     <MESSAGE value="audio ok" />
     <MESSAGE value="basic work" />
     <MESSAGE value="english work" />
-    <option name="LAST_COMMIT_MESSAGE" value="english work" />
+    <MESSAGE value="run all function" />
+    <option name="LAST_COMMIT_MESSAGE" value="run all function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

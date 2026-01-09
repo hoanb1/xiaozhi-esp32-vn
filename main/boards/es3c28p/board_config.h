@@ -8,12 +8,12 @@
 #define AUDIO_INPUT_SAMPLE_RATE     16000
 #define AUDIO_OUTPUT_SAMPLE_RATE    16000
 
-/* I2S Audio Pins */
+/* I2S Audio Pins - Matched with Demo Log */
 #define AUDIO_I2S_GPIO_MCLK         GPIO_NUM_4
 #define AUDIO_I2S_GPIO_BCLK         GPIO_NUM_5
 #define AUDIO_I2S_GPIO_WS           GPIO_NUM_7
-#define AUDIO_I2S_GPIO_DOUT         GPIO_NUM_6
-#define AUDIO_I2S_GPIO_DIN          GPIO_NUM_8
+#define AUDIO_I2S_GPIO_DOUT         GPIO_NUM_8
+#define AUDIO_I2S_GPIO_DIN          GPIO_NUM_6
 #define AUDIO_CODEC_PA_PIN          GPIO_NUM_1
 
 /* LCD Pins (ILI9341 via SPI) */

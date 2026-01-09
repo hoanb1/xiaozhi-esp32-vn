@@ -4,6 +4,7 @@
 #include <esp_log.h>
 #include <esp_codec_dev_defaults.h>
 #include <driver/gpio.h>
+#include <cmath>
 
 #define TAG "ES3C28P_Codec"
 
@@ -11,7 +12,7 @@ ES3C28PAudioCodec::ES3C28PAudioCodec(int mclk, int bclk, int ws, int dout, int d
     : mclk_pin_((int16_t)mclk), bclk_pin_((int16_t)bclk), ws_pin_((int16_t)ws),
       dout_pin_((int16_t)dout), din_pin_((int16_t)din), pa_pin_((int16_t)pa_pin) {
     input_sample_rate_ = 16000;
-    output_sample_rate_ = 24000;
+    output_sample_rate_ = 16000; // Match demo rate
     InitializeI2S();
 }
 
@@ -24,16 +25,13 @@ void ES3C28PAudioCodec::InitializeI2S() {
 
     i2s_chan_config_t chan_cfg = I2S_CHANNEL_DEFAULT_CONFIG(I2S_NUM_0, I2S_ROLE_MASTER);
     chan_cfg.auto_clear = true;
-    // Tối ưu DMA để tiết kiệm RAM nội bộ cho UDP
     chan_cfg.dma_desc_num = 6;
     chan_cfg.dma_frame_num = 240;
 
     ESP_ERROR_CHECK(i2s_new_channel(&chan_cfg, &tx_handle_, &rx_handle_));
 
-    uint32_t sample_rate_hz = (uint32_t)output_sample_rate_;
     i2s_std_config_t std_cfg = {
-        .clk_cfg = I2S_STD_CLK_DEFAULT_CONFIG(sample_rate_hz),
-        // ES8311 cần Slot Stereo để đồng bộ Clock tốt hơn
+        .clk_cfg = I2S_STD_CLK_DEFAULT_CONFIG((uint32_t)output_sample_rate_),
         .slot_cfg = I2S_STD_PHILIPS_SLOT_DEFAULT_CONFIG(I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_STEREO),
         .gpio_cfg = {
             .mclk = (gpio_num_t)mclk_pin_,
@@ -43,8 +41,7 @@ void ES3C28PAudioCodec::InitializeI2S() {
             .din = (gpio_num_t)din_pin_,
         },
     };
-
-    std_cfg.clk_cfg.mclk_multiple = I2S_MCLK_MULTIPLE_256;
+    std_cfg.clk_cfg.mclk_multiple = I2S_MCLK_MULTIPLE_384;
 
     ESP_ERROR_CHECK(i2s_channel_init_std_mode(tx_handle_, &std_cfg));
     ESP_ERROR_CHECK(i2s_channel_init_std_mode(rx_handle_, &std_cfg));
@@ -89,25 +86,20 @@ void ES3C28PAudioCodec::Config(i2c_master_bus_handle_t i2c_bus) {
         .bits_per_sample = 16,
         .channel = 2,
         .sample_rate = (uint32_t)output_sample_rate_,
-        .mclk_multiple = 256,
+        .mclk_multiple = 384,
     };
 
     if (esp_codec_dev_open(dev_, &fs) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to open codec, retrying...");
-        vTaskDelay(pdMS_TO_TICKS(500));
-        esp_codec_dev_open(dev_, &fs);
+        ESP_LOGE(TAG, "Failed to open ES8311. Check I2C pull-ups on Pin 15/16.");
     }
 
-    esp_codec_dev_set_out_vol(dev_, 85);
-    esp_codec_dev_set_in_gain(dev_, 42);
-    ESP_LOGI(TAG, "Audio hardware forced configuration finished");
+    esp_codec_dev_set_out_vol(dev_, 70);
+    esp_codec_dev_set_in_gain(dev_, 35);
+    ESP_LOGI(TAG, "ES8311 Audio Codec initialized with MCLK 384x");
 }
 
 int ES3C28PAudioCodec::Write(const int16_t* data, int samples) {
     if (output_enabled_ && dev_) {
-        // Kiểm tra xem dữ liệu có được đẩy ra loa không
-        static int write_cnt = 0;
-        if (write_cnt++ % 100 == 0) ESP_LOGD(TAG, "Speaker active");
         esp_codec_dev_write(dev_, (void*)data, samples * sizeof(int16_t));
     }
     return samples;
@@ -116,6 +108,23 @@ int ES3C28PAudioCodec::Write(const int16_t* data, int samples) {
 int ES3C28PAudioCodec::Read(int16_t* dest, int samples) {
     if (input_enabled_ && dev_) {
         esp_codec_dev_read(dev_, (void*)dest, samples * sizeof(int16_t));
+
+        // --- MIC DEBUG LOGIC ---
+        static int debug_count = 0;
+        if (++debug_count >= 100) { // In log mỗi ~1 giây (với 16kHz/160 samples mỗi frame)
+            float sum_sq = 0;
+            for (int i = 0; i < samples; i++) {
+                sum_sq += (float)dest[i] * dest[i];
+            }
+            float rms = std::sqrt(sum_sq / samples);
+            if (rms < 10.0f) {
+                ESP_LOGW(TAG, "Mic is SILENT (RMS: %.2f) - check hardware!", rms);
+            } else {
+                ESP_LOGI(TAG, "Mic ACTIVE (RMS: %.2f)", rms);
+            }
+            debug_count = 0;
+        }
+        // -----------------------
     }
     return samples;
 }
@@ -131,11 +140,11 @@ void ES3C28PAudioCodec::SetInputGain(float gain_db) {
 
 void ES3C28PAudioCodec::EnableOutput(bool enable) {
     output_enabled_ = enable;
+    if (dev_) esp_codec_dev_set_out_mute(dev_, !enable);
     if (pa_pin_ != -1) {
-        // GPIO 1: Board ES3C28P thường cần mức LOW (0) để bật PA
+        // PA Pin 1: LOW to enable as per demo log
         gpio_set_level((gpio_num_t)pa_pin_, enable ? 0 : 1);
     }
-    if (dev_) esp_codec_dev_set_out_mute(dev_, !enable);
 }
 
 void ES3C28PAudioCodec::EnableInput(bool enable) {
